@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Lume AI",
+  "version": "0.1.0",
+  "description": "A friend beside you: describes the page you are on, out loud, with context.",
+  "permissions": ["activeTab", "scripting", "storage", "tts", "offscreen"],
+  "host_permissions": ["https://api.anthropic.com/*", "<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Lume AI: describe this page"
+  },
+  "commands": {
+    "describe-page": {
+      "suggested_key": {
+        "default": "Alt+Shift+L",
+        "mac": "Alt+Shift+L"
+      },
+      "description": "Describe the current page out loud"
+    }
+  }
+}

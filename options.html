@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lume AI options</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 520px; margin: 40px auto; padding: 0 20px; color: #1d2b3d; }
+      h1 { font-size: 24px; margin-bottom: 4px; }
+      p { color: #56708f; margin-top: 0; }
+      label { display: block; margin: 20px 0 6px; font-weight: 600; }
+      input, select { width: 100%; padding: 10px 12px; font-size: 16px; border: 1px solid #b8c7d9; border-radius: 8px; box-sizing: border-box; }
+      button { margin-top: 24px; padding: 12px 22px; font-size: 16px; font-weight: 600; color: #fff; background: #2a6fb0; border: 0; border-radius: 8px; cursor: pointer; }
+      button.secondary { margin: 0 12px 0 0; background: #eef4fb; color: #1d2b3d; border: 1px solid #b8c7d9; }
+      #status { margin-left: 12px; color: #2a7a3a; }
+      small { color: #56708f; }
+    </style>
+  </head>
+  <body>
+    <h1>Lume AI</h1>
+    <p>Press <b>Alt+Shift+L</b> on any page to hear it described. Press it again to stop.</p>
+
+    <label for="apiKey">Anthropic API key</label>
+    <input id="apiKey" type="password" autocomplete="off" placeholder="sk-ant-..." />
+    <small>Stored only in this browser. Without it, Lume gives a basic description.</small>
+
+    <label for="model">Model</label>
+    <select id="model">
+      <option value="claude-haiku-5-5">Haiku 5.5 (fast and cheap)</option>
+      <option value="claude-sonnet-5-5">Sonnet 5.5 (more capable)</option>
+    </select>
+
+    <label for="lang">Language</label>
+    <select id="lang">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+
+    <label for="voiceName">Voice</label>
+    <select id="voiceName"></select>
+    <small>Premium or Enhanced voices sound much more natural. Download them in macOS System Settings &gt; Accessibility &gt; Spoken Content &gt; System Voice &gt; Manage Voices.</small>
+
+    <label for="rate">Speed</label>
+    <select id="rate">
+      <option value="0.8">Slow</option>
+      <option value="0.9">Relaxed</option>
+      <option value="1">Normal</option>
+      <option value="1.15">Fast</option>
+    </select>
+    <button id="testVoice" type="button" class="secondary" style="margin-top: 12px">Test voice</button>
+
+    <label><input id="bargeIn" type="checkbox" style="width: auto; margin-right: 8px" />Let me interrupt Lume by talking</label>
+    <small>Works best with headphones; with speakers Lume may hear itself and cut off.</small>
+
+    <label for="bargeLevel">Interruption sensitivity</label>
+    <select id="bargeLevel">
+      <option value="low">Loud voice only</option>
+      <option value="medium">Normal voice</option>
+      <option value="high">Any voice (most sensitive)</option>
+    </select>
+
+    <label>Microphone</label>
+    <button id="mic" type="button" class="secondary">Allow microphone</button>
+    <small id="micStatus" role="status">Needed once so Lume can hear you.</small>
+
+    <button id="save" type="button">Save</button><span id="status" role="status"></span>
+
+    <script src="options.js"></script>
+  </body>
+</html>
